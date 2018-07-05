@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/content/',
+  base: '/particle-workshops/',
   themeConfig: {
     repo: 'particle-iot/workshops',
     editLinks: true,
