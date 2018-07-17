@@ -3,7 +3,6 @@ module.exports = {
   themeConfig: {
     repo: 'particle-iot/workshops',
     editLinks: true,
-    // custom text for edit link. Defaults to "Edit this page"
     editLinkText: 'Help us improve this page!',
     nav: [
       { text: 'Home', link: '/' },
