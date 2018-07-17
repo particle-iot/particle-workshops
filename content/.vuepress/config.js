@@ -1,7 +1,7 @@
 module.exports = {
   base: '/',
   themeConfig: {
-    repo: 'particle-iot/workshops',
+    repo: 'particle-iot/particle-workshops',
     editLinks: true,
     editLinkText: 'Help us improve this page!',
     nav: [
