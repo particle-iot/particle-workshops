@@ -2,7 +2,7 @@
 
 ---
 
-Particle workshops are helf- and full-day hands on explorations of the Particle ecosystem, including hardware, firmware and software. Each workshop is led by Particle employees or community advocates, and are designed to give developers new to IoT development the hands-on training they need to confidently build their own IoT solutions, at home, work, and beyond!
+Particle workshops are half- and full-day hands on explorations of the Particle ecosystem, including hardware, firmware and software. Each workshop is led by Particle employees or community advocates, and are designed to give developers new to IoT development the hands-on training they need to confidently build their own IoT solutions, at home, work, and beyond!
 
 The workshops are broken into presentations intermixed with hands-on labs that reinforce presentation content.
 
