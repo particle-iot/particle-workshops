@@ -1,20 +1,20 @@
 # Chapter 1: Claiming Your Particle Device
 
-| **Project Goal**            | Get your Particle Photon online and claimed to your account                         |
-| --------------------------- | ----------------------------------------------------------------------------------- |
-| **What you’ll learn**       | How to claim a new Particle device using the mobile app, a web browser and the CLI. |
-| **Tools you’ll need**       | A Photon, USB Cable, The Particle CLI                                               |
-| **Time needed to complete** | 15 minutes                                                                          |
+| **Project Goal**            | Get your Particle Photon online and claimed to your account                    |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| **What you’ll learn**       | How to claim a new Particle device using a mobile app, web browser or the CLI. |
+| **Tools you’ll need**       | A Photon, USB Cable, the Particle CLI                                          |
+| **Time needed to complete** | 15 minutes                                                                     |
 
 ## 3 Ways to Claim A New Device
 
 Particle provides three methods for claiming a new Photon:
 
-1.  [Using the Particle Mobile App](#mobile-app-instructions)
-2.  [Using a Web browser](#browser-instructions)
-3.  [Using the Particle CLI](#particle-cli-instructions)
+1.  [the Particle Mobile App](#mobile-app-instructions)
+2.  [a Web browser](#browser-instructions)
+3.  [the Particle CLI](#particle-cli-instructions)
 
-Approaches #1 and 2 use the SoftAP capabilities of the Photon to cause the device to appear as a Wi-Fi access point so that you can connect to the device and configure its connection to a local Wi-Fi network. This is a very useful feature, but since we'll have a lot of Photons coming online at the same time in this workshop, we're going to use the Particle CLI method, which uses USB Serial to setup and claim the device.
+Approaches #1 and 2 use SoftAP capabilities on the Photon to cause the device to appear as a Wi-Fi access point. Once connected, you can configure the device's connection to a local Wi-Fi network. This is a very useful feature, but since we'll have a lot of Photons coming online at the same time in this workshop, we're going to use the Particle CLI method, which uses USB Serial to setup and claim the device.
 
 Once you've claimed your Photon, you'll use [Tinker](https://docs.particle.io/guide/getting-started/tinker/photon/) on the Particle mobile app to interact with your new device.
 
@@ -56,7 +56,7 @@ Once you've claimed your Photon, you'll use [Tinker](https://docs.particle.io/gu
 
 ![](./images/01/namephoton.png)
 
-If you're online, [skip below](#interacting-with-your-photon-with-tinker) to play with your new Photon with Tinker. Or, you can skim through the setup steps using the Mobile app or your browser, if you're curious.
+If you're online, [skip below](#interacting-with-your-photon-with-tinker) to play with your new Photon with Tinker. For reference, we've provided the setup instructions for the web and mobile approaches, below.
 
 ## Mobile App Instructions
 
@@ -82,11 +82,13 @@ If you're online, [skip below](#interacting-with-your-photon-with-tinker) to pla
 
 ![](./images/01/06-instructions.png)
 
-6.  The next screen will instruct you to go to your phone's Settings and to look for a Wi-Fi access point named "Photon-" and a string of characters unique to the device (**Note**: the app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long). For instance, the Photon below broadcasts "Photon-UQGKCR." This string corresponds to the last six characters of the UPC code printed on the box for your device.
+6.  The next screen will instruct you to go to your phone's Settings and to look for a Wi-Fi access point named "Photon-" and a string of characters unique to the device.
 
 ![](./images/01/07-wifi.png)
 
-7.  Once you've selected the Photon access point, you'll see a notification that you can return to the Particle app to continue setup.
+7.  **Note**: the app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long. For instance, the Photon below broadcasts "Photon-UQGKCR." This string corresponds to the last six characters of the UPC code printed on the box for your device.
+
+Once you've selected the Photon access point, you'll see a notification that you can return to the Particle app to continue setup.
 
 ![](./images/01/09-Photonconnected.png)
 
@@ -128,7 +130,7 @@ If you're online, [skip below](#interacting-with-your-photon-with-tinker) to pla
 
 ![](./images/01/06-runfile.png)
 
-6.  Find your device in the WiFi List and Connect to it. Look for a Wi-Fi access point named "Photon-" and a string of characters unique to the device (Note: the app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long). For instance, the Photon below broadcasts "Photon-CKDH2Z." This string corresponds to the last six characters of the UPC code printed on the box for your device.
+6.  Find your device in the WiFi List and Connect to it. Look for a Wi-Fi access point named "Photon-" and a string of characters unique to the device (Note: the app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long. For instance, the Photon below broadcasts "Photon-CKDH2Z." This string corresponds to the last six characters of the UPC code printed on the box for your device.)
 
 ![](./images/01/08-changewifi.png)
 
@@ -150,13 +152,15 @@ If you're online, [skip below](#interacting-with-your-photon-with-tinker) to pla
 
 ## Interacting with your Photon with Tinker
 
+Now that you've claimed your Photon, let's light up an LED!
+
 **Note**: images below are from the iOS setup. The flow of the Android setup experience is similar.
 
 1.  Open the Particle Mobile App
 
 ![](./images/01/01-mobilesplash.png)
 
-2.  Your new device should show up in the list with the name you gave it. If the Tinker firmware is still on the device, you'll see that indicated as well. If Tinker is not still on the device, you can flash is back on using the Particle CLI with the command `particle flash <deviceName> tinker`.
+2.  Your new device should show up in the list with the name you gave it. If the Tinker firmware is still on the device, you'll see that indicated as well. If Tinker is not still on the device, you can flash it back onto the device using the Particle CLI with the command `particle flash <deviceName> tinker`.
 
 Tap the device you want to interact with via Tinker.
 
