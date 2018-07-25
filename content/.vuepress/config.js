@@ -11,8 +11,8 @@ module.exports = {
     sidebar: [
       '/docs/',
       ['/docs/ch1', 'Chapter 1: Claiming your Device'],
-      ['/docs/ch2', 'Chapter 2: Sense from your Badge & Control a Display'],
-      ['/docs/ch3', 'Chapter 3: More sensors and actuators'],
+      ['/docs/ch2', 'Chapter 2: Get your badge to blinky!'],
+      ['/docs/ch3', 'Chapter 3: Working with sensors'],
       ['/docs/ch4', 'Chapter 4: Controlling your badge from the internet!'],
       ['/docs/extra1', 'Extra: Taking your Photon exploration further']
     ]

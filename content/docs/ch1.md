@@ -10,9 +10,9 @@
 
 Particle provides three methods for claiming a new Photon:
 
-1.  [the Particle Mobile App](#mobile-app-instructions)
-2.  [a Web browser](#browser-instructions)
-3.  [the Particle CLI](#particle-cli-instructions)
+1.  [The Particle Mobile App](#mobile-app-instructions)
+2.  [A Web browser](#browser-instructions)
+3.  [The Particle CLI](#particle-cli-instructions)
 
 Approaches #1 and 2 use SoftAP capabilities on the Photon to cause the device to appear as a Wi-Fi access point. Once connected, you can configure the device's connection to a local Wi-Fi network. This is a very useful feature, but since we'll have a lot of Photons coming online at the same time in this workshop, we're going to use the Particle CLI method, which uses USB Serial to setup and claim the device.
 
