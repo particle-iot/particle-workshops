@@ -6,7 +6,7 @@
 | **Tools you’ll need**       | puild.particle.io, console.particle.io, the Particle CLI                                      |
 | **Time needed to complete** | 30 minutes                                                                                    |
 
-In this session, we're going to explore the Particle ecosystem via an interactive, Photon-powered conference badge! If you get stuck at any point during this session, [click here for the completed, working source](ADD).
+In this session, we're going to explore the Particle ecosystem via an interactive, Photon-powered conference badge! If you get stuck at any point during this session, [click here for the completed, working source](https://go.particle.io/shared_apps/5b58e758236934ba580002c7).
 
 ## Create a new project in the Web IDE
 
