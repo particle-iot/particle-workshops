@@ -3,7 +3,7 @@
 | **Project Goal**            | Start programming your Photon, badge, and leverage the device cloud.                          |
 | --------------------------- | --------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to interact with LEDs & write to a display; Using Particle variables and cloud functions. |
-| **Tools you’ll need**       | puild.particle.io, console.particle.io, the Particle CLI                                      |
+| **Tools you’ll need**       | build.particle.io, console.particle.io, the Particle CLI                                      |
 | **Time needed to complete** | 30 minutes                                                                                    |
 
 In this session, we're going to explore the Particle ecosystem via an interactive, Photon-powered conference badge! If you get stuck at any point during this session, [click here for the completed, working source](https://go.particle.io/shared_apps/5b58e758236934ba580002c7).
@@ -40,7 +40,7 @@ True to its name, `setup()` runs only only once when the device starts up and is
 
 `loop()`, on the other hand, runs over and over again as long as your firmware is running on the device. When the function is called by the device OS, the code inside executes sequentially until it reaches the closing brace of the function, before being called again.
 
-While the speed at which the `loop()` function executes is determined by the specific hardware and the time needed to excute the use code you've written in the function, its important to know that, much of the time, this function will run very fast.
+While the speed at which the `loop()` function executes is determined by the specific hardware and the time needed to excute the use code you've written in the function, it's important to know that, much of the time, this function will run very fast.
 
 The bulk of your program, from state management, handling user input, reading from sensors and more will take place inside of the `loop()` function. It can take a bit of getting used to if you're not familiar with this style of development, but once you become comfortable, you'll enjoy the power this control provides you as a firmware developer.
 
@@ -48,7 +48,7 @@ The bulk of your program, from state management, handling user input, reading fr
 
 ### Lighting up the Red LED
 
-Now let's blink some badge LEDs! The first thing we need to do is set the [`pinMode`](https://docs.particle.io/reference/firmware/photon/#pinmode-) for our LEDs. On the Photon, every device used in a project, but it a sensor or actuator, is connected to one or more pins on the Photon itself. Sometimes you'll see these referred to as GPIO pins or IO pins, with the "IO" standing for "Input Output. Every pin can either emit a value (via a voltage from the Photon) or receive a value (via a voltage from a source). When initializing your project, you'll want to denote in `setup()` any pins that need to function in one of these modes.
+Now let's blink some badge LEDs! The first thing we need to do is set the [`pinMode`](https://docs.particle.io/reference/firmware/photon/#pinmode-) for our LEDs. On the Photon, every device used in a project, but it a sensor or actuator, is connected to one or more pins on the Photon itself. Sometimes you'll see these referred to as GPIO pins or IO pins, with the "IO" standing for "Input Output." Every pin can either emit a value (via a voltage from the Photon) or receive a value (via a voltage from a source). When initializing your project, you'll want to denote in `setup()` any pins that need to function in one of these modes.
 
 1.  The LEDs on our badge are on pins A0-A4, and all four will be set as `OUTPUT` pins, which we can specify by adding four `pinMode()` calls to the `setup()` function
 
@@ -61,13 +61,13 @@ void setup() {
 }
 ```
 
-2.  Now that we've configured our LEDs as outputs, let's turn the Red LED on. We'll do this using the [`digitalWrite()`](https://docs.particle.io/reference/firmware/photon/#digitalwrite-) function. `digitalWrite()` takes two parameters: the pin to set, and whether to set the pin to `LOW` (or 0 volts) or `HIGH` (or 3.v volts, in the case of the Photon). Setting any LED pin to `LOW` cuts off power to the pin, which turns it off. Setting it to `HIGH` on the other hand, will turn the LED on. Still inside the `setup()` function, add a single line at the end to turn on our Red LED.
+2.  Now that we've configured our LEDs as outputs, let's turn the Red LED on. We'll do this using the [`digitalWrite()`](https://docs.particle.io/reference/firmware/photon/#digitalwrite-) function. `digitalWrite()` takes two parameters: the pin to set, and whether to set the pin to `LOW` (or 0 volts) or `HIGH` (or 3.3v volts, in the case of the Photon). Setting any LED pin to `LOW` cuts off power to the pin, which turns the LED off. Setting it to `HIGH` on the other hand, will turn the LED on. Still inside the `setup()` function, add a single line at the end to turn on our Red LED.
 
 ```cpp
 digitalWrite(A3, HIGH);
 ```
 
-3.  To see your first code in action, we need to install your code on the device. This is often referred to as "flashing firmware". In the bottom-left corner of the Web IDE, click on the crosshairs icon to open the devices panel.
+3.  To see your first code in action, we need to install the code on a device. This is often referred to as "flashing firmware". In the bottom-left corner of the Web IDE, click on the crosshairs icon to open the devices panel.
 
 ![](./images/02/devices.png)
 
@@ -165,7 +165,7 @@ int toggleBlue(String command)
 }
 ```
 
-`Paticle.function()` Handlers must follow a precise function signature that returns an int and takes a single `String`, which can be used to pass additional information along with the function call. We don't need this parameter at the moment, but we'll still need to include it in the signature.
+`Paticle.function()` Handlers must follow a precise function signature that returns an int and takes a single `String`, which can be used to pass additional information along with the function call. We don't need this parameter at the moment, but we still need to include it in the signature.
 
 In the handler, we're checking the value of the `isBlueOn` variable to determine if the light is on. If it is, we turn it off, otherwise, we turn it on. Then, we set `isBlueOn` to reflect the change and return a `1` to indicate success.
 
@@ -367,7 +367,7 @@ This time, we'll write whatever is passed into the `displayName` function to the
 
 ### BONUS: Command your badge from the Particle mobile app!
 
-So far, we've used the Console to interact with Particle functions and variables, but you can do the same with the Particle iOS and Android apps.
+So far, we've used the Console to interact with Particle functions and variables, but you can do the same with the Particle iOS and Android apps!
 
 1.  Open your mobile app and login.
 
