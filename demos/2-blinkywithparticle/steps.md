@@ -152,55 +152,31 @@ void loop() {
 ## Installing Firmware Libraries
 
 1.  Click on the Libraries menu option in the Web IDE. Show off the UI.
-2.  In the search bar, type Si7021.
-3.  Click on the `Adafruit_Si7021` library and talk about what it shows on the screen (source and examples)
+2.  In the search bar, type SSD1306.
+3.  Click on the `Adafruit_SSD1306` library and talk about what it shows on the screen (source and examples)
 4.  Click Include in Project and put it in the project for this walkthrough.
 5.  Notice that the library has been referenced at the top of the file.
 6.  Initialize the sensor as in the example.
 
 ```
-Adafruit_Si7021 sensor = Adafruit_Si7021();
-```
-
-7.  Add `sensor.begin()` to the setup function.
-8.  Add a variable to store the temp reading.
-
-```
-Particle.variable("temp", currentTemp);
-```
-
-9.  And read from it in setup
-
-```
-currentTemp = round((sensor.readTemperature() * 1.8 + 32.00)*10)/10;
-```
-
-10. Go back to the console and show the current temp variable.
-
-11. That's cool, but let's write to a screen! Go back to the libraries tab and search for `SSD1306`.
-
-12. Install the Adafruit library, once again.
-
-13. Declare the display
-
-```
 Adafruit_SSD1306 display(RESET);
 ```
 
-14. Initialize the display in `setup`
+7.  Start the screen in `setup`
 
 ```
 display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+display.clearDisplay();
 ```
 
-14. Write the temp after reading
+9.  Now lets write something to it
 
 ```
 display.display();
 display.setCursor(0, 0);
 display.println();
 display.setTextSize(2);
-display.print(currentTemp);
-display.println("%");
+display.setTextWrap(true);
+display.print("Hello THAT Conference!");
 display.display();
 ```
