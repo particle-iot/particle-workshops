@@ -1,10 +1,10 @@
 # Chapter 2: Get your badge to blinky!
 
-| **Project Goal**            | Start programming your Photon, badge, and leverage the device cloud.                          |
-| --------------------------- | --------------------------------------------------------------------------------------------- |
-| **What you’ll learn**       | How to interact with LEDs & write to a display; Using Particle variables and cloud functions. |
-| **Tools you’ll need**       | build.particle.io, console.particle.io, the Particle CLI                                      |
-| **Time needed to complete** | 30 minutes                                                                                    |
+| **Project Goal**            | Start programming your Photon, badge, and leverage the device cloud.     |
+| --------------------------- | ------------------------------------------------------------------------ |
+| **What you’ll learn**       | How to interact with LEDs; Using Particle variables and cloud functions. |
+| **Tools you’ll need**       | build.particle.io, console.particle.io, the Particle CLI                 |
+| **Time needed to complete** | 30 minutes                                                               |
 
 In this session, we're going to explore the Particle ecosystem via an interactive, Photon-powered conference badge! If you get stuck at any point during this session, [click here for the completed, working source](https://go.particle.io/shared_apps/5b58e758236934ba580002c7).
 
@@ -327,6 +327,8 @@ display.setCursor(0, 0);
 display.println("Brandon Satrom"); //Replace with your name.
 display.display(); // Flush everything to the screen
 ```
+
+The first thing to do is clear the display. Then, calling the `setTextWrap` function will let the display know that it should wrap text to the next line, instead of cutting it off. We'll set the size, position the cursor at the top left of the display and then call `println` to display a name on the screen. Finally, calling `display()` flushes any pending changes to the screen.
 
 11. Now, when you flash the firmware to your device, you'll see your name pop up on the screen. Or mine, if you didn't change the default.
 

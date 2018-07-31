@@ -167,7 +167,7 @@ currentTemp = round((sensor.readTemperature() * 1.8 + 32.00)*10)/10;
 ```cpp
 void playTones(int tonePin, const int tones[])
 {
-  for (int i = 1; t < (tones[0] * 2 + 1); i = I + 2)
+  for (int i = 1; i < (tones[0] * 2 + 1); i = i + 2)
   {
     tone(tonePin, tones[i], (1000 / tones[i + 1]));
     delay((1000 / tones[i + 1]) * 1.30);
