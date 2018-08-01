@@ -1,10 +1,10 @@
 # Chapter 2: Get your badge to blinky!
 
-| **Project Goal**            | Start programming your Photon, badge, and leverage the device cloud.     |
-| --------------------------- | ------------------------------------------------------------------------ |
-| **What you’ll learn**       | How to interact with LEDs; Using Particle variables and cloud functions. |
-| **Tools you’ll need**       | build.particle.io, console.particle.io, the Particle CLI                 |
-| **Time needed to complete** | 30 minutes                                                               |
+| **Project Goal**            | Start programming your Photon, badge, and leverage the device cloud.                        |
+| --------------------------- | ------------------------------------------------------------------------------------------- |
+| **What you’ll learn**       | How to interact with LEDs; Using Particle variables and cloud functions.                    |
+| **Tools you’ll need**       | build.particle.io, console.particle.io, the Particle CLI, a Particle Photon and #PartiBadge |
+| **Time needed to complete** | 30 minutes                                                                                  |
 
 In this session, we're going to explore the Particle ecosystem via an interactive, Photon-powered conference badge! If you get stuck at any point during this session, [click here for the completed, working source](https://go.particle.io/shared_apps/5b58e758236934ba580002c7).
 
@@ -32,19 +32,19 @@ In this session, we're going to explore the Particle ecosystem via an interactiv
 
 ## The `setup()` and `loop()` functions
 
-Before we dive into our first bit of code, a brief word about the two functions that were auto-populated into your new app. If you've done Ardunio or Particle development before, you're already familiar with these and can skip ahead. If not, read on.
+Before we dive into our first bit of code, a brief word about the two functions that were auto-populated into your new app. If you've done Arduino or Particle development before, you're already familiar with these and can skip ahead. If not, read on.
 
 Every Particle application _must_ have two functions in the main file (sometimes called a "sketch"): `setup()` and `loop()`. Both of these functions are called by the Particle Device OS.
 
-True to its name, `setup()` runs only only once when the device starts up and is used for initializing buttons and sensors and other things needed to get your project ready to excute.
+True to its name, `setup()` runs only only once when the device starts up and is used for initializing buttons and sensors and other things needed to get your project ready to execute.
 
 `loop()`, on the other hand, runs over and over again as long as your firmware is running on the device. When the function is called by the device OS, the code inside executes sequentially until it reaches the closing brace of the function, before being called again.
 
-While the speed at which the `loop()` function executes is determined by the specific hardware and the time needed to excute the use code you've written in the function, it's important to know that, much of the time, this function will run very fast.
+While the speed at which the `loop()` function executes is determined by the specific hardware and the time needed to execute the use code you've written in the function, it's important to know that, much of the time, this function will run very fast.
 
 The bulk of your program, from state management, handling user input, reading from sensors and more will take place inside of the `loop()` function. It can take a bit of getting used to if you're not familiar with this style of development, but once you become comfortable, you'll enjoy the power this control provides you as a firmware developer.
 
-## Controling the Badge LEDs
+## Controlling the Badge LEDs
 
 ### Lighting up the Red LED
 
@@ -67,7 +67,7 @@ void setup() {
 digitalWrite(A3, HIGH);
 ```
 
-3.  To see your first code in action, we need to install the code on a device. This is often referred to as "flashing firmware". In the bottom-left corner of the Web IDE, click on the crosshairs icon to open the devices panel.
+3.  To see your first code in action, we need to install the code on a device. This is often referred to as "flashing firmware". In the bottom-left corner of the Web IDE, click on the cross-hairs icon to open the devices panel.
 
 ![](./images/02/devices.png)
 
@@ -143,7 +143,7 @@ void loop() {
  Particle.function("toggleBlue", toggleBlue);
 ```
 
-The first parameter in the call above is the name that the Device Cloud API will use to track and execute the function. The name has to be less than 12 characters, so you'll want these to be short, yet descriptive. The second parameter is the name of the firmware function to call when this function is excuted from the cloud. These names do not need to match.
+The first parameter in the call above is the name that the Device Cloud API will use to track and execute the function. The name has to be less than 12 characters, so you'll want these to be short, yet descriptive. The second parameter is the name of the firmware function to call when this function is executed from the cloud. These names do not need to match.
 
 4.  Once we've declared the function, we'll need to define the `toggleBlue` handler. Add the following before your `setup()` function:
 
@@ -187,7 +187,7 @@ In the handler, we're checking the value of the `isBlueOn` variable to determine
 
 ### Using a Cloud Event to toggle the Green LED
 
-Before we move on from LED-blinkery, let's take a look at using Cloud varibales and events to toggle the green LED.
+Before we move on from LED-blinkery, let's take a look at using Cloud variables and events to toggle the green LED.
 
 1.  First, we'll need a status variable for the green LED. Add the following line under `isBlueOn`:
 
@@ -312,7 +312,7 @@ display.clearDisplay();
 display.display();
 ```
 
-The begin call takes a couple of parameters. The first instructs the display to use the 3.3 volt line for power, and the second is the hexidecimal [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) address of the display. We'll talk more about I2C in the next session.
+The begin call takes a couple of parameters. The first instructs the display to use the 3.3 volt line for power, and the second is the hexadecimal [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) address of the display. We'll talk more about I2C in the next session.
 
 After initializing the display, we'll clear it.
 

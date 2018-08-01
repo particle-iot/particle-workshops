@@ -100,7 +100,7 @@ Once you've selected the Photon access point, you'll see a notification that you
 
 ![](./images/01/11-networkpassword.png)
 
-10. The app will then configure Wi-Fi on the device, reset it, wait for a Device Cloud connection and verify your ownsership of the device.
+10. The app will then configure Wi-Fi on the device, reset it, wait for a Device Cloud connection and verify your ownership of the device.
 
 ![](./images/01/12-connecting.png)
 

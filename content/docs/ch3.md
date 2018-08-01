@@ -1,16 +1,16 @@
 # Chapter 3: Input and sensor basics
 
-| **Project Goal**            | Take control of the sensors and actuators on your badge. Read from and control devices.                                                                                |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **What you’ll learn**       | Porting projects from the Web IDE to the desktop IDE; reading from a temperature and humidity sensor; working with buttons and debouncing; Working with a piezo buzzer |
-| **Tools you’ll need**       | Particle Dev (Desktop IDE), the Particle CLI                                                                                                                           |
-| **Time needed to complete** | 30 minutes                                                                                                                                                             |
+| **Project Goal**            | Take control of the sensors and actuators on your badge. Read from and control devices.                                                                                    |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **What you’ll learn**       | How to port projects from the Web IDE to the desktop IDE; reading from a temperature and humidity sensor; working with buttons and debouncing; working with a piezo buzzer |
+| **Tools you’ll need**       | Particle Dev (Desktop IDE), a Particle Photon and #PartiBadge                                                                                                              |
+| **Time needed to complete** | 30 minutes                                                                                                                                                                 |
 
-In this session, we're going to explore more inputs and sensors on the badge, starting with the onboard temperature and humidity sensor. From there, we'll explore how to interact with the buttons and joystick for input and finally, using the piezo buzzer to make sounds! If you get stuck at any point during this session, [click here for the completed, working source](TODO).
+In this session, we're going to explore more inputs and sensors on the badge, starting with the onboard temperature and humidity sensor. From there, we'll explore how to interact with the buttons and joystick for input and finally, how to use the piezo buzzer to make sounds! If you get stuck at any point during this session, [click here for the completed, working source](https://github.com/particle-iot/particle-workshops/blob/master/demos/3-moresensors/src/finish.ino).
 
 ## Moving to Particle Dev (Desktop IDE)
 
-For the rest of this workship, we're going to use the Particle desktop IDE. Thankfully, Particle makes it easy to grab your source from the Web IDE and continue in a desktop environment.
+For the rest of this workshop, we're going to use the Particle desktop IDE. Thankfully, Particle makes it easy to grab your source from the Web IDE and continue in a desktop environment.
 
 1.  If you haven't installed the Particle Dev Desktop IDE, [do that first, here](https://docs.particle.io/guide/tools-and-features/dev/#logging-in).
 
@@ -44,13 +44,13 @@ For the rest of this workship, we're going to use the Particle desktop IDE. Than
 
 ![](./images/03/selectdevice.png)
 
-10. We're going to use `0.8.0-rc.8` for the rest of this workshop, so select it from the list in the window that pops up.
+10. We're going to use `0.8.0-rc.9` for the rest of this workshop, so select it from the list in the window that pops up.
 
 ![](./images/03/pickversion.png)
 
 ![](./images/03/allset.png)
 
-11. Click the "lightning bolt" icon in the top left corner of the Desktop IDE. Once completed, your badge should still operate as it did at the end of the last lab. Now, let's do some more stuff!
+11. Click the "lightning bolt" icon in the top left corner of the Desktop IDE. Once completed, your badge should still operate as it did at the end of the last lab. Now, let's do some more stuff with it!
 
 ![](./images/03/flash.png)
 
@@ -90,20 +90,20 @@ To work with the onboard temperature and humidity sensor, we'll use a library th
 Adafruit_Si7021 sensor = Adafruit_Si7021();
 ```
 
-3.  Add a global varibale to hold the current temp and humidity
+3.  Add a global variable to hold the current temp and humidity.
 
 ```cpp
 int currentTemp;
 int currentHumidity;
 ```
 
-4.  At the start of `setup`, add a call to `sensor.begin()` to initialize the sensor
+4.  At the start of `setup`, add a call to `sensor.begin()` to initialize the sensor.
 
 ```cpp
 sensor.begin();
 ```
 
-3.  Also in the `setup` function, add Particle varibales for the temp and humidity.
+3.  Also in the `setup` function, add Particle variables for the temp and humidity.
 
 ```cpp
 Particle.variable("temp", currentTemp);
@@ -117,7 +117,7 @@ currentTemp = round((sensor.readTemperature() * 1.8 + 32.00) * 10) / 10;
 currentHumidity = round(sensor.readHumidity()*10)/10;
 ```
 
-For the temperature, the `readTemperature()` function returns Celcius by default, so we'll convert i to F. And the `* 10/ 10` gives us clean integer values for the global variables.
+For the temperature, the `readTemperature()` function returns Celsius by default, so we'll convert i to F. And the `* 10/ 10` gives us clean integer values for the global variables.
 
 5.  Flash your device and visit its dashboard page in the console. You should see two new variables under the `greenOn` variable you defined in the last lab.
 
@@ -131,13 +131,13 @@ For the temperature, the `readTemperature()` function returns Celcius by default
 
 It's cool to be able to publish temperature and humidity to the cloud, but your badge also has a screen, so let's put it to work!
 
-1.  In the last section, we had the badge read the temp and humidity on startup. Let's do that via a cloud function instead. First, add a new `Particle.function` to `setup`
+1.  In the last section, we had the badge read the temp and humidity on startup. Let's do that via a cloud function instead. First, add a new `Particle.function` to `setup`.
 
 ```cpp
 Particle.function("dispTempHu", displEnvSensors);
 ```
 
-2.  Add the `displEnvSensors` function before `setup`
+2.  Add the `displEnvSensors` function before `setup`.
 
 ```cpp
 int displEnvSensors(String command) {
@@ -157,7 +157,7 @@ int displEnvSensors(String command) {
 }
 ```
 
-Much like when we displayed a name on our badges in the last lab, we'll use several convinience functions of the `Si7021` library to make it easy to wrte to the screen. One difference to note is the call to `setCursor`. Instead of setting the cursor to the top left of the display, here its set to start writing text at x position 0 and y position 20 pixels, which effectively centers the text vertically.
+Much like when we displayed a name on our badges in the last lab, we'll use several convenience functions of the `Si7021` library to make it easy to write to the screen. One difference to note is the call to `setCursor`. Instead of setting the cursor to the top left of the display, here its set to start writing text at x position 0 and y position 20 pixels, which effectively centers the text vertically.
 
 3.  Flash the latest firmware to your device and return to the console. Click on the `dispTempHu` function and the latest values will be written to the screen.
 
@@ -356,7 +356,7 @@ if (joystickRightDebouncer.read() == LOW)
 
 **For extra credit, how could you change the code above to _NOT_ redraw the circle each time, but add a new circle 1 pixel offset from the last?**
 
-**For extra, ectra credit, how would you implement collision detection so that the circle can't be moved beyond the bounds of the screen?**
+**For extra, extra credit, how would you implement collision detection so that the circle can't be moved beyond the bounds of the screen?**
 
 ## Working with the Piezo Buzzer
 
@@ -406,6 +406,6 @@ playTones(BUZZER_PIN, notes_MarioStartup);
 
 6.  Now flash the firmware to your device. When your device comes back online, you'll be greeted by a familiar tune!
 
-**For extra credit, try implementing a tone or tune that plays when you press a button or move the joystick. How about a tone that increases in pitch when the joysick is pressed upward, and falls in pitch when pressed downward?**
+**For extra credit, try implementing a tone or tune that plays when you press a button or move the joystick. How about a tone that increases in pitch when the joystick is pressed upward, and falls in pitch when pressed downward?**
 
 You've learned a lot about Particle and common sensors, inputs and actuators over the last three labs. Now it's time to take our project to the cloud!
