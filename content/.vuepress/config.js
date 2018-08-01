@@ -13,7 +13,7 @@ module.exports = {
       ['/docs/ch1', 'Chapter 1: Claiming your device'],
       ['/docs/ch2', 'Chapter 2: Get your badge to blinky!'],
       ['/docs/ch3', 'Chapter 3: Input and sensor basics'],
-      ['/docs/ch4', 'Chapter 4: Controlling your badge from the internet!'],
+      ['/docs/ch4', 'Chapter 4: Going Beyond Devices'],
       ['/docs/extra1', 'Extra: Taking your Photon exploration further']
     ]
   },
