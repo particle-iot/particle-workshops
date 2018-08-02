@@ -66,7 +66,7 @@ curl https://api.particle.io/v1/devices?access_token=2b5810b22ce75c52e9be18bf88b
 10. In the text, set the value to "My #PartiBadge is tweeting! {{DeviceName}} published {{EventName}} with data {{EventContents}}"
 11. Click "Create action"
 12. Click "Finish"
-13. Now, head over to your fimware and add the following to where the red button is checked:
+13. Now, head over to your firmware and add the following to where the red button is checked:
 
 ```cpp
 Particle.publish("button-pressed", "red", MY_DEVICES);

@@ -20,11 +20,11 @@ For our workshops, we wanted to provide attendees with a set of hardware that al
 
 - Chapter 1: Claiming your Particle Device
   - Unbox a brand new Photon, claim it to your Particle account, and make it light up with Tinker
-- Chapter 2: Sense from your Badge & Control a Display
+- Chapter 2: Get your badge to blinky!
   - Read simple sensors included on your badge, and update the display with sensor data
-- Chapter 3: More sensors and actuators
+- Chapter 3: Input and sensor basics
   - Explore and interact with more of the sensors on your badge
-- Chapter 4: Controlling your badge from the internet!
-  - Leverage the Particle Device OS and Cloud to control your badge from web and mobile apps
+- Chapter 4: Going beyond devices!
+  - Leverage the Particle Device OS and Cloud to integrate with 3rd party services and pipe sensor data into Azure IoT Hub.
 
 ---
