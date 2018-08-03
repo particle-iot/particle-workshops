@@ -16,6 +16,13 @@ This site contains in-depth lab documents that complement in-person presentation
 
 For our workshops, we wanted to provide attendees with a set of hardware that allows them to interact with real sensors in a self-contained project, while being fun to work and play with. Our #PartiBadge contains a number of onboard sensors and actuators that students interact with while learning Particle hardware, and IoT in general, and they leave the workshop with something they'll want to continue hacking in the future.
 
+## Before you start
+
+1.  Create a new [Particle account](https://login.particle.io/signup)
+2.  Install the Particle [iOS](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App
+3.  [Install the Particle CLI](https://docs.particle.io/guide/getting-started/connect/photon/#install-the-particle-cli)
+4.  [Install the Particle Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/)
+
 ## Workshop Content
 
 - Chapter 1: Claiming your Particle Device

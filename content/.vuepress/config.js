@@ -17,7 +17,7 @@ module.exports = {
       ['/docs/extra1', 'Extra: Building apps with Particle']
     ]
   },
-  title: 'Particle Workshops',
+  title: 'Particle Photon Workshop',
   description:
-    'Workshops designed to teach the basics of IoT development with the Particle ecosystem'
+    'Workshops designed to teach the basics of IoT development with the Particle ecosystem & the Particle Photon'
 };

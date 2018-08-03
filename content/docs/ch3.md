@@ -54,9 +54,9 @@ For the rest of this workshop, we're going to use the Particle desktop IDE. Than
 
 ![](./images/03/flash.png)
 
-## Reading from the temperature and tumidity sensor
+## Reading from the temperature and humidity sensor
 
-To work with the onboard temperature and humidity sensor, we'll use a library that wraps up all of the internals of dealing with this particlar I2C device.
+To work with the onboard temperature and humidity sensor, we'll use a library that wraps up all of the internals of dealing with this particular I2C device.
 
 ### Installing the `Si7021` library
 
@@ -64,7 +64,7 @@ To work with the onboard temperature and humidity sensor, we'll use a library th
 
 ![](./images/03/installlib.png)
 
-2.  In the "Partible Libraries" tab that opens up, type "Si7021" in the search box and hit enter.
+2.  In the "Particle Libraries" tab that opens up, type "Si7021" in the search box and hit enter.
 
 ![](./images/03/searchlib.png)
 
