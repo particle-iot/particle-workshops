@@ -120,7 +120,7 @@ Particle.publish("env-sensors", "{\"temp\":" + String(currentTemp) + ",\"hu\":" 
 8.  Click "review and create"
 9.  Click "create"
 10. It will take a minute to create your hub. If it takes too long, just show of the existing one. Once created, click on "Shared access policies" and create a new policy.
-11. Give the policy the name "workshop-policy" and choose all permissions.
+11. Give the policy the name `workshop-policy` and choose all permissions.
 12. Grab the primary key and go back to the integration tab of the Particle console.
 13. For the Event name use, "env-sensors"
 14. For the hub name use "tc-workshop-hub"

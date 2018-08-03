@@ -82,6 +82,14 @@ void handleBlink(const char *event, const char *data)
   }
 }
 
+int readSensors(String command) {
+  currentTemp = round((sensor.readTemperature() * 1.8 + 32.00) * 10) / 10;
+  currentHumidity = round((sensor.readHumidity()) * 10) / 10;
+  Particle.publish("env-sensors", "{\"temp\":" + String(currentTemp) + ",\"hu\":" + String(currentHumidity) + "}", PRIVATE);
+
+  return 1;
+}
+
 void setup()
 {
   Serial.begin(115200);
@@ -100,6 +108,7 @@ void setup()
 
   Particle.function("toggleY", toggleYellow);
   Particle.function("toggleB", toggleBlue);
+  Particle.function("readSensors", readSensors);
 
   Particle.variable("yellowOn", isYellowOn);
   Particle.variable("blueOn", isBlueOn);
@@ -107,9 +116,7 @@ void setup()
 
   Particle.subscribe("blinkIt", handleBlink);
 
-  currentTemp = round((sensor.readTemperature() * 1.8 + 32.00) * 10) / 10;
-  currentHumidity = round((sensor.readHumidity()) * 10) / 10;
-  Particle.publish("env-sensors", "{\"temp\":" + String(currentTemp) + ",\"hu\":" + String(currentHumidity) + "}", PRIVATE);
+  readSensors("");
 
   display.display();
   display.setCursor(0, 0);
