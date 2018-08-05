@@ -36,7 +36,7 @@ Before we dive into our first bit of code, a brief word about the two functions 
 
 Every Particle application _must_ have two functions in the main file (sometimes called a "sketch"): `setup()` and `loop()`. Both of these functions are called by the Particle Device OS.
 
-True to its name, `setup()` runs only only once when the device starts up and is used for initializing buttons and sensors and other things needed to get your project ready to execute.
+True to its name, `setup()` runs only only once when the device starts up and is used for initializing buttons, sensors and other things needed to get your project ready to execute.
 
 `loop()`, on the other hand, runs over and over again as long as your firmware is running on the device. When the function is called by the device OS, the code inside executes sequentially until it reaches the closing brace of the function, before being called again.
 
@@ -48,7 +48,7 @@ The bulk of your program, from state management, handling user input, reading fr
 
 ### Lighting up the Red LED
 
-Now let's blink some badge LEDs! The first thing we need to do is set the [`pinMode`](https://docs.particle.io/reference/firmware/photon/#pinmode-) for our LEDs. On the Photon, every device used in a project, but it a sensor or actuator, is connected to one or more pins on the Photon itself. Sometimes you'll see these referred to as GPIO pins or IO pins, with the "IO" standing for "Input Output." Every pin can either emit a value (via a voltage from the Photon) or receive a value (via a voltage from a source). When initializing your project, you'll want to denote in `setup()` any pins that need to function in one of these modes.
+Now let's blink some badge LEDs! The first thing we need to do is set the [`pinMode`](https://docs.particle.io/reference/firmware/photon/#pinmode-) for our LEDs. On the Photon, every device used in a project, be it a sensor or actuator, is connected to one or more pins on the Photon itself. Sometimes you'll see these referred to as GPIO pins or IO pins, with the "IO" standing for "Input Output." Every pin can either emit a value (via a voltage from the Photon) or receive a value (via a voltage from a source). When initializing your project, you'll want to denote in `setup()` any pins that need to function in one of these modes.
 
 1.  The LEDs on our badge are on pins A0-A4, and all four will be set as `OUTPUT` pins, which we can specify by adding four `pinMode()` calls to the `setup()` function
 
@@ -140,7 +140,7 @@ void loop() {
 3.  Now, we're ready to cloud-ify our blue LED. Start by adding a call to `Particle.function()` in `setup`
 
 ```cpp
- Particle.function("toggleBlue", toggleBlue);
+Particle.function("toggleBlue", toggleBlue);
 ```
 
 The first parameter in the call above is the name that the Device Cloud API will use to track and execute the function. The name has to be less than 12 characters, so you'll want these to be short, yet descriptive. The second parameter is the name of the firmware function to call when this function is executed from the cloud. These names do not need to match.
@@ -213,14 +213,14 @@ Just as with declaring a function, `Particle.variable()` expects a name (12 char
 
 ```cpp
 void toggle(bool isOn, int led) {
-    if (isOn)
-    {
-        digitalWrite(led, LOW);
-    }
-    else
-    {
-        digitalWrite(led, HIGH);
-    }
+  if (isOn)
+  {
+      digitalWrite(led, LOW);
+  }
+  else
+  {
+      digitalWrite(led, HIGH);
+  }
 }
 ```
 
@@ -270,7 +270,7 @@ Particle.subscribe("toggleGreen", toggleGreen, MY_DEVICES);
 
 Now that you're an LED master, let's write some text to that fancy OLED display on your badge! You'll start by installing a firmware library for the screen and writing some text. Then, you'll set up a cloud function for your name and display it on the screen!
 
-1.  In the Web IDE, look for the libraries icon in the right navbar. It looks like a bookmark.
+1.  In the Web IDE, look for the libraries icon in the right navigation. It looks like a bookmark.
 
 ![](./images/02/libraries.png)
 
@@ -312,7 +312,7 @@ display.clearDisplay();
 display.display();
 ```
 
-The begin call takes a couple of parameters. The first instructs the display to use the 3.3 volt line for power, and the second is the hexadecimal [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) address of the display. We'll talk more about I2C in the next session.
+The `begin` call takes a couple of parameters. The first instructs the display to use the 3.3 volt line for power, and the second is the hexadecimal [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) address of the display. We'll talk more about I2C in the next session.
 
 After initializing the display, we'll clear it.
 
@@ -328,13 +328,13 @@ display.println("Brandon Satrom"); //Replace with your name.
 display.display(); // Flush everything to the screen
 ```
 
-The first thing to do is clear the display. Then, calling the `setTextWrap` function will let the display know that it should wrap text to the next line, instead of cutting it off. We'll set the size, position the cursor at the top left of the display and then call `println` to display a name on the screen. Finally, calling `display()` flushes any pending changes to the screen.
+The first thing to do is clear the display. Then, calling the `setTextWrap` function will let the display know that it should wrap text to the next line, instead of cutting it off. We'll set the size, position the cursor at the top left of the display and then call `println` to display a name on the screen. Finally, calling `display()` flushes all pending changes to the screen.
 
 11. Now, when you flash the firmware to your device, you'll see your name pop up on the screen. Or mine, if you didn't change the default.
 
 ![](./images/02/nameonscreen.jpg)
 
-12. That's pretty cool, but what if we don't want to hard code our names to our badges? We can use a cloud function to set a name and display it to the screen! First, let's create a new `Particle.function()`
+12. That's pretty cool, but what if we don't want to hard code our names to our badges? We can use a cloud function to set a name and display it to the screen! First, let's create a new `Particle.function()`.
 
 ```cpp
 Particle.function("displayName", displayName);

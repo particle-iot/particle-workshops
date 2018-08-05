@@ -16,6 +16,7 @@ Now that you've gotten a survey off all that the Particle Ecosystem, why not try
 
 ## Particle Resources
 
+- [PartiBadge GitHub Repo](https://github.com/particle-iot/parti-badge)
 - [Docs and Guides](https://docs.particle.io/guide/getting-started/intro/photon/)
 - [Particle Community](https://community.particle.io/)
 - [Particle on Hackster.io](https://www.hackster.io/particle)

@@ -27,13 +27,13 @@ Once you've claimed your Photon, you'll use [Tinker](https://docs.particle.io/gu
 
 ## Particle CLI Instructions
 
-1.  Plug your Photon into a serial port on your computer
+1.  Plug your Photon into a serial port on your computer.
 
 2.  Make sure your device is in "Listening Mode" (aka blinking blue). If the Photon is not in listening mode, hold down the `SETUP` button for three seconds, until the RGB LED begins blinking blue.
 
 ![](./images/01/blinkingblue.gif)
 
-3.  Run `particle login` to login with your account
+3.  Run `particle login` to login with your account.
 
 ![](./images/01/particlelogin.png)
 
@@ -63,15 +63,15 @@ If you're online, [skip below](#interacting-with-your-photon-with-tinker) to pla
 
 **Note**: Images below are from the iOS setup. The flow of the Android setup experience is similar.
 
-1.  Open the Particle Mobile App
+1.  Open the Particle Mobile App.
 
 ![](./images/01/01-mobilesplash.png)
 
-2.  Login, or create a new account if you don't already have one
+2.  Login, or create a new account if you don't already have one.
 
 ![](./images/01/03-mobilelogin.png)
 
-3.  On the "Your Devices" screen, click the "+" in the top-right to add a new device
+3.  On the "Your Devices" screen, click the "+" in the top-right to add a new device.
 
 ![](./images/01/04-mobiledevicelist.png)
 
@@ -87,7 +87,7 @@ If you're online, [skip below](#interacting-with-your-photon-with-tinker) to pla
 
 ![](./images/01/07-wifi.png)
 
-7.  **Note**: the app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long. For instance, the Photon below broadcasts "Photon-UQGKCR." This string corresponds to the last six characters of the UPC code printed on the box for your device.
+7.  **Note**: The app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long. For instance, the Photon below broadcasts "Photon-UQGKCR." This string corresponds to the last six characters of the UPC code printed on the box for your device.
 
 Once you've selected the Photon access point, you'll see a notification that you can return to the Particle app to continue setup.
 
@@ -131,7 +131,7 @@ Once you've selected the Photon access point, you'll see a notification that you
 
 ![](./images/01/06-runfile.png)
 
-6.  Find your device in the WiFi List and Connect to it. Look for a Wi-Fi access point named "Photon-" and a string of characters unique to the device (Note: the app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long. For instance, the Photon below broadcasts "Photon-CKDH2Z." This string corresponds to the last six characters of the UPC code printed on the box for your device.)
+6.  Find your device in the Wi-Fi List and Connect to it. Look for a Wi-Fi access point named "Photon-" and a string of characters unique to the device (Note: the app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long. For instance, the Photon below broadcasts "Photon-CKDH2Z." This string corresponds to the last six characters of the UPC code printed on the box for your device.)
 
 ![](./images/01/08-changewifi.png)
 
@@ -157,7 +157,7 @@ Now that you've claimed your Photon, let's light up an LED!
 
 **Note**: images below are from the iOS setup. The flow of the Android setup experience is similar.
 
-1.  Open the Particle Mobile App
+1.  Open the Particle Mobile App.
 
 ![](./images/01/01-mobilesplash.png)
 

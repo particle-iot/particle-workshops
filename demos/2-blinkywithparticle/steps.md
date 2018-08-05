@@ -8,7 +8,7 @@ Step-by-step instructions for the demo portions of the "Getting to Blinky with P
 
 1.  Open build.particle.io and login
 2.  Show off the various parts of the Web IDE
-3.  Navigate to thwe Code view and click on the "Blink and LED" example app
+3.  Navigate to the Code view and click on the "Blink and LED" example app
 4.  Click "Use this example"
 5.  Show the device name and firmware version in the lower-right.
 6.  Select the device name and pick the device you want. Show off the "Signal" option and try it out.

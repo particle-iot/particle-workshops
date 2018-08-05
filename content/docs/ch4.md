@@ -36,7 +36,7 @@ bash <( curl -sL https://particle.io/install-cli )
 
 ### The Particle Device Cloud API
 
-Behind the scenes, every interface that Particle provides to work with devices, from the console to, mobile apps, SDKs and the CLI talks through a RESTful Device Cloud API, which you can also call yourself, directly.
+Behind the scenes, every interface that Particle provides to work with devices, from the console, to mobile apps, SDKs, and the CLI talks through a RESTful Device Cloud API, which you can also call yourself, directly.
 
 _The next few steps assume you have cURL installed on your machine. If you don't have this command-line utility on your machine, you can download and install it [here](https://curl.haxx.se/download.html) or use a GUI-based tool like [Postman](https://www.getpostman.com/)._
 
@@ -62,17 +62,17 @@ curl https://api.particle.io/v1/devices\?access_token\=<your token>
 4.  Let's call the `toggleB` function using the Device Cloud API. Type the following, again replacing the text below in `< >` with your information.
 
 ```bash
-curl https://api.particle.io/v1/devices/3<device id>/toggleB \
+curl https://api.particle.io/v1/devices/<device id>/toggleB \
      -d access_token=<your token>
 ```
 
 ![](./images/04/curlcall.gif)
 
-With that, you've now explored all of the ways that you can interface with the Particle Device cloud and your connected devices! Now, let's go beyond the Particle ecosystem and explore some of the ways that you can integrate with other 3rd party services, and backhaul your data into other cloud services.
+You've now explored a number of ways that you can interface with the Particle Device cloud and your connected devices! Now, let's go beyond the Particle ecosystem and explore some of the ways that you can integrate with other 3rd party services, and backhaul your data into other cloud services.
 
 ## Exploring Integrations with IFTTT
 
-IFTTT (If This, Then That) is a web-based services that allows you to create integrations via simple conditional statements, called applets. There are hundreds of pre-build services you can leverage, and first-class support for Particle devices. In this section, we're going to create an IFTTT integration that posts a tweet when you press a button on your badge.
+IFTTT (If This, Then That) is a web-based service that allows you to create integrations via simple conditional statements, called applets. There are hundreds of pre-built services you can leverage, and first-class support for Particle devices. In this section, we're going to create an IFTTT integration that posts a tweet when you press a button on your badge.
 
 1.  Start by heading over to [IFTTT](https://ifttt.com) and either login, or create a new account.
 
@@ -96,7 +96,7 @@ IFTTT (If This, Then That) is a web-based services that allows you to create int
 
 ![](./images/04/choosetrigger.png)
 
-6.  In the trigger fields, set the event name as `button-pressed` the event contents to `red` and the Device name to the name of your device. Click "create trigger"
+6.  In the trigger fields, set the event name as `button-pressed` the event contents to `red` and the Device name to the name of your device. Click "create trigger."
 
 ![](./images/04/completetrigger.png)
 
@@ -220,7 +220,7 @@ Now we can complete setting up this integration from the Particle Console.
 
 ![](./images/04/view-int.png)
 
-7.  Click the "Test" button. If you see a timeout like the second image below,try running another test. You should see a green success message in the bottom right corner of the screen.
+7.  Click the "Test" button. If you see a timeout like the second image below, try running another test. You should see a green success message in the bottom right corner of the screen.
 
 ![](./images/04/test-int.png)
 
@@ -242,7 +242,7 @@ Now we can complete setting up this integration from the Particle Console.
 Particle.function("readSensors", readSensors);
 ```
 
-2.  Above `setup`, add the `readSensors` function
+2.  Above `setup`, add the `readSensors` function.
 
 ```cpp
 int readSensors(String command) {
@@ -254,13 +254,7 @@ int readSensors(String command) {
 }
 ```
 
-3.  Remove the previous check for temperature in `setup` and add a call to the `readSensors` function.
-
-```cpp
-readSensors("");
-```
-
-4.  Head to the dashboard for your device in the console and click "Call" on the `readSensors` funciton. The event name should show up in the list on the left.
+3.  Head to the dashboard for your device in the console and click "Call" on the `readSensors` funciton. The event name should show up in the list on the left.
 
 ![](./images/04/read-sensors.png)
 
@@ -274,7 +268,7 @@ With the event set up, everything should be piping into the Azure IoT hub. We ca
 
 ![](./images/04/copy-conn-string.png)
 
-3.  Open a terminal window and type in the following command, replacing the `<device-id>` with the ID of your Photon and pasting the Shared access policy connection string between the `"<connection-string>"` after login.
+3.  Open a terminal window and type in the following command, replacing the `<device-id>` with the ID of your Photon and pasting the Shared access policy connection string in place of `<connection-string>` after login. Make sure to leave the quotation marks in place.
 
 ```bash
 iothub-explorer monitor-events <device-id> --login "<connection-string>"

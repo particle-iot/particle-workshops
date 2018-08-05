@@ -6,7 +6,7 @@
 | **Tools you’ll need**       | Particle Dev (Desktop IDE), a Particle Photon and #PartiBadge                                                                                                              |
 | **Time needed to complete** | 30 minutes                                                                                                                                                                 |
 
-In this session, we're going to explore more inputs and sensors on the badge, starting with the onboard temperature and humidity sensor. From there, we'll explore how to interact with the buttons and joystick for input and finally, how to use the piezo buzzer to make sounds! If you get stuck at any point during this session, [click here for the completed, working source](https://github.com/particle-iot/particle-workshops/blob/master/demos/3-moresensors/src/finish.ino).
+In this session, we're going to explore more inputs and sensors on the badge, starting with the on board temperature and humidity sensor. From there, we'll explore how to interact with the buttons and joystick for input and finally, how to use the piezo buzzer to make sounds! If you get stuck at any point during this session, [click here for the completed, working source](https://github.com/particle-iot/particle-workshops/blob/master/demos/3-moresensors/src/finish.ino).
 
 ## Moving to Particle Dev (Desktop IDE)
 
@@ -14,9 +14,9 @@ For the rest of this workshop, we're going to use the Particle desktop IDE. Than
 
 1.  If you haven't installed the Particle Dev Desktop IDE, [do that first, here](https://docs.particle.io/guide/tools-and-features/dev/#logging-in).
 
-2.  Once you've installed the desktop IDE, head back to the Web IDE to grab your project from the last lab, so we can contiue working on it.
+2.  Once you've installed the desktop IDE, head back to the Web IDE to grab your project from the last lab, so we can continue working on it.
 
-3.  Next to the Files list in the code view, you'll see a download icon. Click that to get a local copy of your app source as a Zip.
+3.  Next to the files list in the code view, you'll see a download icon. Click that to get a local copy of your app source as a Zip.
 
 ![](./images/03/webdownload.png)
 
@@ -32,7 +32,7 @@ For the rest of this workshop, we're going to use the Particle desktop IDE. Than
 
 ![](./images/03/twofiles.png)
 
-7.  Now, let's make sure the Photon we want to work with is selected. At the bottom of the IDE you should see the text "No devices selcted".
+7.  Now, let's make sure the Photon we want to work with is selected. At the bottom of the IDE you should see the text "No devices selected".
 
 ![](./images/03/selectdevice.png)
 
@@ -50,13 +50,13 @@ For the rest of this workshop, we're going to use the Particle desktop IDE. Than
 
 ![](./images/03/allset.png)
 
-11. Click the "lightning bolt" icon in the top left corner of the Desktop IDE. Once completed, your badge should still operate as it did at the end of the last lab. Now, let's do some more stuff with it!
+11. Click the "lightning bolt" icon in the top left corner of the Desktop IDE. Once completed, your badge should still operate as it did at the end of the last lab. Let's do some more stuff with it!
 
 ![](./images/03/flash.png)
 
 ## Reading from the temperature and humidity sensor
 
-To work with the onboard temperature and humidity sensor, we'll use a library that wraps up all of the internals of dealing with this particular I2C device.
+To work with the on board temperature and humidity sensor, we'll use a library that wraps up all of the internals of dealing with this particular I2C device.
 
 ### Installing the `Si7021` library
 
@@ -76,7 +76,7 @@ To work with the onboard temperature and humidity sensor, we'll use a library th
 
 ![](./images/03/dependencies.png)
 
-### Reading from the `Si7021` sensor
+### Reading from the `Si7021` temp and humidity sensor
 
 1.  Add an `include` reference to the top of your project, just after the reference for the `SSD1306` library.
 
@@ -131,7 +131,7 @@ For the temperature, the `readTemperature()` function returns Celsius by default
 
 It's cool to be able to publish temperature and humidity to the cloud, but your badge also has a screen, so let's put it to work!
 
-1.  In the last section, we had the badge read the temp and humidity on startup. Let's do that via a cloud function instead. First, add a new `Particle.function` to `setup`.
+1.  In the last section, we had the badge read the temp and humidity on startup. Let's do that via a cloud function instead. First, add a new `Particle.function()` to `setup`.
 
 ```cpp
 Particle.function("dispTempHu", displEnvSensors);
@@ -157,7 +157,7 @@ int displEnvSensors(String command) {
 }
 ```
 
-Much like when we displayed a name on our badges in the last lab, we'll use several convenience functions of the `Si7021` library to make it easy to write to the screen. One difference to note is the call to `setCursor`. Instead of setting the cursor to the top left of the display, here its set to start writing text at x position 0 and y position 20 pixels, which effectively centers the text vertically.
+Much like when we displayed a name on our badges in the last lab, we'll use several convenience functions of the `Si7021` library to make it easy to write to the screen. One difference to note is the call to `setCursor`. Instead of setting the cursor to the top left of the display, here it is set to start writing text at x position 0 and y position 20 pixels, which effectively centers the text vertically.
 
 3.  Flash the latest firmware to your device and return to the console. Click on the `dispTempHu` function and the latest values will be written to the screen.
 
@@ -177,7 +177,7 @@ Much like when we displayed a name on our badges in the last lab, we'll use seve
 #define YELLOW_BUTTON_D A4
 ```
 
-`#define` is a special preprocessor directive that allows us to give meaningful names to things in our firmware code without needing to take up memory with variables, like we did with the LEDs in the previous lab. Whenever the compiler builds the firmware binaries, it replaces any mention of one of these values (like `BLUE_BUTTON_B`) with the substitution value specified on the right-hand side (in this case `BLUE_BUTTON_B`). Using `#define` is pretty common when working with GPIO pins as it makes it easy to remember which pins one is working with without having to create constants or repeatedly scroll up to reference the correct GPIO mapping.
+`#define` is a special preprocessor directive that allows us to give meaningful names to things in our firmware code without needing to take up memory with variables, like we did with the LEDs in the previous lab. Whenever the compiler builds the firmware binaries, it replaces any mention of one of these values (like `BLUE_BUTTON_B`) with the substitution value specified on the right-hand side (in this case `A5`). Using `#define` is pretty common when working with GPIO pins as it makes it easy to remember which pins one is working with without having to create constants or repeatedly scroll up to reference the correct GPIO mapping.
 
 2.  With our buttons defined, lets take a look at toggling the LEDs based on button presses. First, remove the `digitalWrite` and `delay` calls that we added to the `loop` function previously.
 
@@ -212,7 +212,7 @@ else
 #include "Debounce.h"
 ```
 
-8.  We're going to add debounce functionality to our Blue button and use it to light up the green LED. Add a `Debounce` object to the global scope before any function.
+8.  We're going to add debounce functionality to our blue button and use it to light up the green LED. Add a `Debounce` object to the global scope before any function.
 
 ```cpp
 Debounce blueButtonBDebouncer = Debounce();
@@ -225,7 +225,7 @@ blueButtonBDebouncer.attach(BLUE_BUTTON_B, INPUT_PULLUP);
 blueButtonBDebouncer.interval(20);
 ```
 
-Behinds the scenes, the `Debounce` library is setting the blue LED button up with a `pinMode` of `INPUT_PULLUP`, but we're also setting a debounce interval for the button. this value represents the number milliseconds to sample the button before determining whether it has been pressed, or not.
+Behind the scenes, the `Debounce` library is setting the blue LED button up with a `pinMode` of `INPUT_PULLUP`, while also setting a debounce interval for the button. this value represents the number milliseconds to sample the button before determining whether it has been pressed, or not. By sampling over time, we can let the switch contacts settle in place.
 
 10. Finally, let's read from the button. Add the following to the `loop` function
 
@@ -243,7 +243,7 @@ else
 
 Calling `update` tells the library to sample the button across the interval we specified. Then, `read()` will return `HIGH` or `LOW` based on that sampling.
 
-11. Flash the new firmware and press the blue button. Does the green LED respond any faster or more consistently than the yellow LED to the red button?
+11. Flash the new firmware and press the blue button. Does the green LED respond any faster or more consistently than the yellow LED to the red button? The buttons on your badge actually seem to behave pretty well, but its always a good idea to debounce your buttons and switches.
 
 **For extra credit, why not add a debouncer to the red button before moving on?**
 
