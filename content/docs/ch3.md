@@ -81,7 +81,7 @@ To work with the on board temperature and humidity sensor, we'll use a library t
 1.  Add an `include` reference to the top of your project, just after the reference for the `SSD1306` library.
 
 ```cpp
-#include <Adafruit_Si70210.h>
+#include <Adafruit_Si7021.h>
 ```
 
 2.  Add a line to initialize the sensor right after the code to initialize the display.

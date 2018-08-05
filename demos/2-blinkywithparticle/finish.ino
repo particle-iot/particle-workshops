@@ -1,3 +1,4 @@
+#include <Adafruit_Si7021.h>
 #include <Adafruit_SSD1306.h>
 
 int yellowLED = A0;
@@ -76,6 +77,7 @@ void setup()
   display.println();
   display.setTextSize(2);
   display.setTextWrap(true);
+  display.setTextColor(WHITE);
   display.print("Hello THAT Conference!");
   display.display();
 }
