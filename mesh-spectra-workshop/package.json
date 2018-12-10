@@ -1,0 +1,20 @@
+{
+  "name": "workshop-mesh-spectra",
+  "version": "1.0.0",
+  "description": "Workshops designed to teach the basics of IoT development with the Particle ecosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:build": "vuepress build content"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/particle-iot/workshop-mesh-spectra.git"
+  },
+  "author": "Brandon Satrom <brandon@particle.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/particle-iot/workshop-mesh-spectra/issues"
+  },
+  "homepage": "https://github.com/particle-iot/workshop-mesh-spectra#readme"
+}

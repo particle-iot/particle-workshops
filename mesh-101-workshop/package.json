@@ -1,0 +1,24 @@
+{
+  "name": "workshop-mesh-thingscon2018",
+  "version": "0.0.1",
+  "description": "Workshop designed to teach the basics of IoT development with the Particle Mesh ecosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:build": "vuepress build content",
+    "docs:dev": "vuepress dev content"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsatrom/mesh-101-workshop"
+  },
+  "author": "Brandon Satrom <brandon@particle.io>",
+  "contributors": [
+    "Niels Jerichau Clausen <niels@reflektor.dk>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^0.14.5"
+  },
+  "dependencies": {}
+}
