@@ -1,0 +1,20 @@
+{
+  "name": "internet-button-workshop",
+  "version": "1.0.0",
+  "description": "Internal onboarding session using the Particle Internet Button",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:build": "vuepress build content"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/particle-iot/internet-button-workshop"
+  },
+  "author": "Brandon Satrom <brandon@particle.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/particle-iot/internet-button-workshop/issues"
+  },
+  "homepage": "https://github.com/particle-iot/internet-button-workshop#readme"
+}
